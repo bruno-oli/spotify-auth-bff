@@ -37,9 +37,12 @@ class AuthUserController {
         })}`,
       )
     } catch (error) {
-      return res.status(401).json({
-        message: 'Failed to authenticate with Spotify',
-      })
+      console.log('sexo2')
+      return res.redirect(
+        `${process.env.REDIRECT_FRONT_END}?${querystring.stringify({
+          error: true,
+        })}`,
+      )
     }
   }
 }
