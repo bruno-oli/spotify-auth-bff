@@ -40,7 +40,7 @@
    ```
 
 4. No seu front end, crie um link para a rota de login
-   ```sh
+   ```html
    <a href="http://localhost:3001/login">Login com o Spotify</a>
    ```
 
