@@ -7,9 +7,9 @@ class AuthUserController {
     const { code } = req.query
 
     if (!code) {
-      return res.status(400).json({
-        message: 'Code not provided',
-      })
+      return res.redirect(
+        `${process.env.REDIRECT_FRONT_END}?error=invalid_code`,
+      )
     }
 
     try {
@@ -37,11 +37,8 @@ class AuthUserController {
         })}`,
       )
     } catch (error) {
-      console.log('sexo2')
       return res.redirect(
-        `${process.env.REDIRECT_FRONT_END}?${querystring.stringify({
-          error: true,
-        })}`,
+        `${process.env.REDIRECT_FRONT_END}?error=invalid_token`,
       )
     }
   }
